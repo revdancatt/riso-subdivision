@@ -1,0 +1,100 @@
+<html>
+
+<head>
+  <title>Subdivisions 01</title>
+  <style>
+    body,
+    html {
+      margin: 0;
+      border: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    #page {
+      background: white;
+      box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    #info {
+      position: absolute;
+      top: 0;
+      left: 15%;
+      width: 35%;
+      min-width: 260px;
+      background: rgb(0, 0, 0);
+      color: white;
+      text-align: center;
+      font-family: monospace;
+      padding-bottom: 4px;
+      border-bottom-left-radius: 8px;
+    }
+
+    #ratios {
+      position: absolute;
+      left: 0;
+      top: 64px;
+      background: rgba(0, 0, 0, 0.2);
+      color: black;
+      font-family: monospace;
+      padding: 4;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="ratios">
+    <a href="/newsletter-plots-one">HOME</a><br />
+    Scaling ratios<br>
+    <a class="pageResize" href="#">A1</a> (1-up): 4.0000<br>
+    <a class="pageResize" href="#">A2</a> (1-up): 2.0000<br>
+    <a class="pageResize" href="#">A3</a> (1-up): 1.0000<br>
+    <a class="pageResize" href="#">A4</a> (2-up): 0.7071<br>
+    <a class="pageResize" href="#">A5</a> (4-up): 0.5000<br>
+    <a class="pageResize" href="#">A6</a> (8-up): 0.3536<br>
+    <a class="pageResize" href="#">A7</a> (16-up): 0.2500<br>
+    <a class="pageResize" href="#">A8</a> (32-up): 0.1768<br>
+    <a class="pageResize" href="#">A9</a> (64-up): 0.1250<br>
+    <a class="pageResize" href="#">C5</a> (4-up): 0.5000<br>
+    <a class="pageResize" href="#">FN</a> (1-up): 0.3333<br>
+    <a class="pageResize" href="#">LT1</a> (1-up): 0.3333<br>
+    <a class="pageResize" href="#">TW</a> (1-up): 0.5000<br>
+    <a class="pageResize" href="#">MAX</a> (1-up): 3.0000<br>
+    <br>
+    So if 100 lines looks<br>
+    good as 1-up set it<br>
+    to 70 at 2-up 50 at<br>
+    4-up, and 35 at 8-up
+  </div>
+
+  <script src="../../common/dat.gui.min.js"></script>
+  <script src="../../common/line.js"></script>
+  <script src="../../common/clipper.js"></script>
+  <script src="../../common/values.js"></script>
+  <script src="../../common/page.js"></script>
+  <script src="../../common/perlin.js"></script>
+  <script>
+    document.write('<script src="./design.js?v=' + Math.floor(Math.random() * 9000 + 1000) + '"><\/script>');
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      let size = 'A5'
+      //  To FORCE the output to be A4 (or A5) pass in a 'pagesize=A4' parameter
+      //  on the URL. The URL will get overwritten, so if you plan on linking
+      //  to an A4 design make sure it's actually in the URL
+      const urlParams = new URLSearchParams(window.location.search)
+      for (const p of urlParams.entries()) {
+        const key = p[0]
+        const value = p[1]
+        if (key === 'pagesize' && page.PAPER[value]) size = value
+      }
+      //  End of stupid page size hack
+      page.init(page.PAPER[size])
+      drawing.buildLines()
+    })
+  </script>
+</body>
+
+</html>
