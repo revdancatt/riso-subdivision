@@ -158,8 +158,9 @@ const main = async () => {
 }
 
 const run = async () => {
-  for (let i = 0; i < 1600; i++) {
-    console.log(`Running ${i + 1} of 100`)
+  const total = 1600
+  for (let i = 0; i < total; i++) {
+    console.log(`Running ${i + 1} of ${total}`)
     await main()
   }
 }
