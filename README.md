@@ -36,7 +36,7 @@ So if the file is called `03 Bright Red + 01 Yellow - 0002 - thumb.png` then loo
 
 Note...
 
-`03 Bright Red + 01 Yellow - 0002 - thumb.png`
-`01 Yellow + 03 Bright Red - 0002 - thumb.png`
+`03 Bright Red + 01 Yellow - 0002 - thumb.png`  
+`01 Yellow + 03 Bright Red - 0002 - thumb.png`  
 
 ...are the same thumbnail, I've just done it like that to make it easier to review outputs of a certain colour combination. So when you look for the full sized outputs, but the colours into numerical order and then you'll find them.
