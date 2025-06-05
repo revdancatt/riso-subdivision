@@ -322,6 +322,7 @@ const drawing = {
 
       for (let layerIndex = 0; layerIndex <= layers; layerIndex++) {
         // Remove everything outside of the margins for this layer
+        v.cropToMargin = false
         let layerDrawLines = page.doAllExperimentalAndCulling(drawing.design[layerIndex], v, culler, RoD, CoD, CoD2)
 
         // Apply layout for this layer
@@ -607,10 +608,10 @@ const drawing = {
       showSquares: true,
       deleteCells: false,
       deleteModAdjuster: 0.5,
-      squareBorder: 0,
-      squareOrCircle: 1,
-      invertAndStuff: 0,
-      gradienty: 0,
+      squareBorder: 2,
+      squareOrCircle: 0.5,
+      invertAndStuff: 0.1,
+      gradienty: 0.1,
       fadeDown: false,
       complicated: false,
       veryComplicated: false
@@ -686,7 +687,7 @@ const drawing = {
 const saveOutput = async () => {
   await drawing.values.redraw()
   // Wait 2 seconds
-  await new Promise(resolve => setTimeout(resolve, 666))
+  await new Promise(resolve => setTimeout(resolve, 1000))
   // Now save the canvas to a base64 string
   const canvas = document.getElementById('page')
   const base64 = canvas.toDataURL('image/png')

@@ -66,21 +66,23 @@
     So if 100 lines looks<br>
     good as 1-up set it<br>
     to 70 at 2-up 50 at<br>
-    4-up, and 35 at 8-up
+    4-up, and 35 at 8-up<br>
+    <br>
+    <a href="#" id="save64Outputs" onclick="save64Outputs(); return false;">Save 64 outputs</a>
   </div>
 
-  <script src="../../common/dat.gui.min.js"></script>
-  <script src="../../common/line.js"></script>
-  <script src="../../common/clipper.js"></script>
-  <script src="../../common/values.js"></script>
-  <script src="../../common/page.js"></script>
-  <script src="../../common/perlin.js"></script>
+  <script src="../common/dat.gui.min.js"></script>
+  <script src="../common/line.js"></script>
+  <script src="../common/clipper.js"></script>
+  <script src="../common/values.js"></script>
+  <script src="../common/page.js"></script>
+  <script src="../common/perlin.js"></script>
   <script>
     document.write('<script src="./design.js?v=' + Math.floor(Math.random() * 9000 + 1000) + '"><\/script>');
   </script>
   <script>
     document.addEventListener('DOMContentLoaded', (event) => {
-      let size = 'A5'
+      let size = 'A3'
       //  To FORCE the output to be A4 (or A5) pass in a 'pagesize=A4' parameter
       //  on the URL. The URL will get overwritten, so if you plan on linking
       //  to an A4 design make sure it's actually in the URL
